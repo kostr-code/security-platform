@@ -13,8 +13,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     defaults:
-	run:
-	    working-directory: secure_delivery_l04
+      run:
+        working-directory: secure_delivery_l04
     timeout-minutes: 10
     steps:
       - name: Checkout repository
