@@ -9,7 +9,9 @@ from urllib.parse import urlsplit
 def response_for(path: str) -> tuple[int, dict[str, str]]:
     """Pure function: route selection is testable without a running server."""
     if urlsplit(path).path == "/healthz":
-        return 503, {"status": "ok", "component": "demo-api"}
+        return 200, {"status": "ok", "component": "demo-api"}
+    if urlsplit(path).path == "/version":
+        return 200, {"status": "ok", "version": "0.1.0"}
     return 404, {"error": "not_found"}
 
 

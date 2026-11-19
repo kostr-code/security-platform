@@ -17,6 +17,11 @@ class RoutingTests(unittest.TestCase):
         status, _ = response_for("/healthz?source=ci")
         self.assertEqual(status, 200)
 
+    def test_version_query(self):
+        status, payload = response_for("/version")
+        self.assertEqual(status, 200)
+        self.assertEqual(payload["status"], "ok")
+        self.assertEqual(payload["version"], "0.1.0")
 
 if __name__ == "__main__":
     unittest.main()
